@@ -1,0 +1,14 @@
+name = BOSA Oplevfyn views
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = bosa_oplevfyn_views
+dependencies[] = ctools
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[views_view][] = Produktvisning_paa_kategoriside
+features[views_view][] = kategori_beskrivelse
+features[views_view][] = kategorivisning
+features[views_view][] = offer_additionlal_info
+features[views_view][] = related_products

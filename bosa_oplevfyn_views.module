@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BOSA Oplevfyn views feature.
+ */
+
+include_once 'bosa_oplevfyn_views.features.inc';
