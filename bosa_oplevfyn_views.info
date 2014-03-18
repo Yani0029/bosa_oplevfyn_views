@@ -1,8 +1,10 @@
 name = BOSA Oplevfyn views
 core = 7.x
 package = Features
+php = 5.2.4
 version = 7.x-1.0
 project = bosa_oplevfyn_views
+dependencies[] = commerce_cart
 dependencies[] = ctools
 dependencies[] = views
 features[ctools][] = views:views_default:3.0

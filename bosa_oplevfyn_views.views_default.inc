@@ -182,10 +182,8 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['fields']['field_knaptekst']['field'] = 'field_knaptekst';
   $handler->display->display_options['fields']['field_knaptekst']['label'] = '';
   $handler->display->display_options['fields']['field_knaptekst']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_knaptekst']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_knaptekst']['alter']['text'] = '[php]';
   $handler->display->display_options['fields']['field_knaptekst']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_knaptekst']['empty'] = 'Book nu';
+  $handler->display->display_options['fields']['field_knaptekst']['empty'] = '[php]';
   $handler->display->display_options['fields']['field_knaptekst']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_knaptekst']['group_column'] = 'entity_id';
   /* Felt: Felt: Titel */
@@ -517,6 +515,29 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
   $handler->display->display_options['sorts']['random']['field'] = 'random';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'offer' => 'offer',
+  );
+  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['id'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['table'] = 'field_data_field_udl_bsdato';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['field'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['granularity'] = 'hour';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['default_date'] = 'now';
 
   /* Display: Produkter - iframe */
   $handler = $view->new_display('panel_pane', 'Produkter - iframe', 'panel_pane_2');
@@ -2097,6 +2118,10 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
   $handler->display->display_options['sorts']['random']['field'] = 'random';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -2111,6 +2136,22 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'offer' => 'offer',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['id'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['table'] = 'field_data_field_udl_bsdato';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['field'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['group'] = 2;
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['granularity'] = 'minute';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['default_date'] = 'now';
+  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['id'] = 'field_udl_bsdato_value_1';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['table'] = 'field_data_field_udl_bsdato';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['field'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['group'] = 2;
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['granularity'] = 'minute';
 
   /* Display: Sal */
   $handler = $view->new_display('block', 'Sal', 'block_1');
@@ -2129,22 +2170,6 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['arguments']['field_sale_kategori_tid']['validate']['type'] = 'taxonomy_term';
   $handler->display->display_options['arguments']['field_sale_kategori_tid']['validate_options']['vocabularies'] = array(
     'sale' => 'sale',
-  );
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Udgivet */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'offer' => 'offer',
   );
 
   /* Display: Tårn */
