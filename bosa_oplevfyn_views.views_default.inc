@@ -250,10 +250,10 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['fields']['field_offer_images']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_offer_images']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteringskriterie: Indhold: Oprettelsesdato */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  /* Sorteringskriterie: Global: Tilfældig */
+  $handler->display->display_options['sorts']['random']['id'] = 'random';
+  $handler->display->display_options['sorts']['random']['table'] = 'views';
+  $handler->display->display_options['sorts']['random']['field'] = 'random';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
@@ -351,7 +351,7 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['filters']['field_udl_bsdato_value']['id'] = 'field_udl_bsdato_value';
   $handler->display->display_options['filters']['field_udl_bsdato_value']['table'] = 'field_data_field_udl_bsdato';
   $handler->display->display_options['filters']['field_udl_bsdato_value']['field'] = 'field_udl_bsdato_value';
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['operator'] = '>=';
   $handler->display->display_options['filters']['field_udl_bsdato_value']['group'] = 2;
   $handler->display->display_options['filters']['field_udl_bsdato_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['operator_id'] = 'field_udl_bsdato_value_op';
@@ -663,6 +663,875 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
   $handler->display->display_options['sorts']['random']['field'] = 'random';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Kontekstuelt filter: Indhold: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['break_phrase'] = TRUE;
+  /* Kontekstuelt filter: Indhold: Har taksonomiterm ID (med dybde) */
+  $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '3';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'offer' => 'offer',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filterkriterie: Indhold: Sale kategori (field_sale_kategori) (translated) */
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['id'] = 'field_sale_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['table'] = 'field_data_field_sale_kategori';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['field'] = 'field_sale_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['group'] = 1;
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['operator_id'] = 'field_sale_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['label'] = 'Sorter efter sale';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['operator'] = 'field_sale_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['identifier'] = 'field_sale_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['vocabulary'] = 'sale';
+  /* Filterkriterie: Indhold: Tårne kategori (field_offer_type) (translated) */
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['id'] = 'field_offer_type_tid_i18n';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['table'] = 'field_data_field_offer_type';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['field'] = 'field_offer_type_tid_i18n';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['group'] = 1;
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['operator_id'] = 'field_offer_type_tid_i18n_op';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['label'] = 'Tårne kategori';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['operator'] = 'field_offer_type_tid_i18n_op';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['identifier'] = 'field_offer_type_tid_i18n';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['vocabulary'] = 'offer_type';
+  /* Filterkriterie: Indhold: Geografi kategori (field_geografi_kategori) (translated) */
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['id'] = 'field_geografi_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['table'] = 'field_data_field_geografi_kategori';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['field'] = 'field_geografi_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['group'] = 1;
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['operator_id'] = 'field_geografi_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['label'] = 'Sorter efter geografi';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['operator'] = 'field_geografi_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['identifier'] = 'field_geografi_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['vocabulary'] = 'geografi';
+  /* Filterkriterie: Commerce Product: Dato (field_offer_dato) */
+  $handler->display->display_options['filters']['field_offer_dato_value']['id'] = 'field_offer_dato_value';
+  $handler->display->display_options['filters']['field_offer_dato_value']['table'] = 'field_data_field_offer_dato';
+  $handler->display->display_options['filters']['field_offer_dato_value']['field'] = 'field_offer_dato_value';
+  $handler->display->display_options['filters']['field_offer_dato_value']['relationship'] = 'field_reference_product_id';
+  $handler->display->display_options['filters']['field_offer_dato_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_offer_dato_value']['group'] = 2;
+  $handler->display->display_options['filters']['field_offer_dato_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_offer_dato_value']['expose']['operator_id'] = 'field_offer_dato_value_op';
+  $handler->display->display_options['filters']['field_offer_dato_value']['expose']['label'] = 'Fra:';
+  $handler->display->display_options['filters']['field_offer_dato_value']['expose']['operator'] = 'field_offer_dato_value_op';
+  $handler->display->display_options['filters']['field_offer_dato_value']['expose']['identifier'] = 'field_offer_dato_value';
+  $handler->display->display_options['filters']['field_offer_dato_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_offer_dato_value']['form_type'] = 'date_popup';
+  /* Filterkriterie: Commerce Product: Dato (field_offer_dato) */
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['id'] = 'field_offer_dato_value_1';
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['table'] = 'field_data_field_offer_dato';
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['field'] = 'field_offer_dato_value';
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['relationship'] = 'field_reference_product_id';
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['group'] = 2;
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['expose']['operator_id'] = 'field_offer_dato_value_1_op';
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['expose']['label'] = 'Til:';
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['expose']['operator'] = 'field_offer_dato_value_1_op';
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['expose']['identifier'] = 'field_offer_dato_value_1';
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_offer_dato_value_1']['form_type'] = 'date_popup';
+  /* Filterkriterie: Commerce Product: Dato og tidspunkt for sidste ordre (field_dato_og_tidspunkt_for_sids) */
+  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['id'] = 'field_dato_og_tidspunkt_for_sids_value';
+  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['table'] = 'field_data_field_dato_og_tidspunkt_for_sids';
+  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['field'] = 'field_dato_og_tidspunkt_for_sids_value';
+  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['relationship'] = 'field_reference_product_id';
+  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['granularity'] = 'hour';
+  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['default_date'] = 'now';
+  $handler->display->display_options['argument_input'] = array(
+    'term_node_tid_depth' => array(
+      'type' => 'user',
+      'context' => 'entity:user.cancel-url',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Indhold: Har taksonomiterm ID (med dybde)',
+    ),
+  );
+
+  /* Display: iframe - Kategorivisning */
+  $handler = $view->new_display('panel_pane', 'iframe - Kategorivisning', 'panel_pane_4');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'as3grid product-list';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
+  $handler->display->display_options['defaults']['query'] = FALSE;
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Find';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '8';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'Der er ingen produkter';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Der er ingen produkter';
+  $handler->display->display_options['empty']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Forbindelse: Indhold: Refereret produkt */
+  $handler->display->display_options['relationships']['field_reference_product_id']['id'] = 'field_reference_product_id';
+  $handler->display->display_options['relationships']['field_reference_product_id']['table'] = 'field_data_field_reference';
+  $handler->display->display_options['relationships']['field_reference_product_id']['field'] = 'field_reference_product_id';
+  /* Forbindelse: Indhold: Taksonomitermer på node */
+  $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+    'offer_type' => 'offer_type',
+    'geografi' => 0,
+    'sale' => 0,
+    'weeks' => 0,
+    'tags' => 0,
+    'prices' => 0,
+  );
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: MIN(Ord i ordforråd: Term ID) */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['fields']['tid']['group_type'] = 'min';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['format_plural'] = TRUE;
+  /* Felt: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = 'knaptekst oversat';
+  $handler->display->display_options['fields']['php']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_output'] = '<?php print (t(\'Buy now\')); ?>';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Felt: Indhold: Knaptekst */
+  $handler->display->display_options['fields']['field_knaptekst']['id'] = 'field_knaptekst';
+  $handler->display->display_options['fields']['field_knaptekst']['table'] = 'field_data_field_knaptekst';
+  $handler->display->display_options['fields']['field_knaptekst']['field'] = 'field_knaptekst';
+  $handler->display->display_options['fields']['field_knaptekst']['label'] = '';
+  $handler->display->display_options['fields']['field_knaptekst']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_knaptekst']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_knaptekst']['empty'] = '[php]';
+  $handler->display->display_options['fields']['field_knaptekst']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_knaptekst']['group_column'] = 'entity_id';
+  /* Felt: Felt: Titel */
+  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['alter']['text'] = '<span class="product-title">[title_field]</span>
+<span class="product-subtitle">[field_subtitle]</span>';
+  $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_field']['element_wrapper_class'] = 'term[tid]';
+  $handler->display->display_options['fields']['title_field']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['title_field']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'title_class' => '',
+  );
+  $handler->display->display_options['fields']['title_field']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
+  /* Felt: Indhold: Underoverskrift */
+  $handler->display->display_options['fields']['field_subtitle']['id'] = 'field_subtitle';
+  $handler->display->display_options['fields']['field_subtitle']['table'] = 'field_data_field_subtitle';
+  $handler->display->display_options['fields']['field_subtitle']['field'] = 'field_subtitle';
+  $handler->display->display_options['fields']['field_subtitle']['label'] = '';
+  $handler->display->display_options['fields']['field_subtitle']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_subtitle']['type'] = 'title_linked';
+  $handler->display->display_options['fields']['field_subtitle']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'title_class' => '',
+  );
+  $handler->display->display_options['fields']['field_subtitle']['group_column'] = 'entity_id';
+  /* Felt: Indhold: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['alter']['text'] = '<span class="btn btn-small">[field_knaptekst]</span>';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Fotos */
+  $handler->display->display_options['fields']['field_offer_images']['id'] = 'field_offer_images';
+  $handler->display->display_options['fields']['field_offer_images']['table'] = 'field_data_field_offer_images';
+  $handler->display->display_options['fields']['field_offer_images']['field'] = 'field_offer_images';
+  $handler->display->display_options['fields']['field_offer_images']['label'] = '';
+  $handler->display->display_options['fields']['field_offer_images']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_offer_images']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_offer_images']['settings'] = array(
+    'image_style' => 'offer_list',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_offer_images']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_offer_images']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_offer_images']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sorteringskriterie: Global: Tilfældig */
+  $handler->display->display_options['sorts']['random']['id'] = 'random';
+  $handler->display->display_options['sorts']['random']['table'] = 'views';
+  $handler->display->display_options['sorts']['random']['field'] = 'random';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Kontekstuelt filter: Indhold: Har taksonomiterm ID (med dybde) */
+  $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '3';
+  /* Kontekstuelt filter: Indhold: Tårne kategori (field_offer_type) */
+  $handler->display->display_options['arguments']['field_offer_type_tid']['id'] = 'field_offer_type_tid';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['table'] = 'field_data_field_offer_type';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['field'] = 'field_offer_type_tid';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['summary_options']['items_per_page'] = '25';
+  /* Kontekstuelt filter: Indhold: Sale kategori (field_sale_kategori) */
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['id'] = 'field_sale_kategori_tid';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['table'] = 'field_data_field_sale_kategori';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['field'] = 'field_sale_kategori_tid';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'AND',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'offer' => 'offer',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filterkriterie: Indhold: Sale kategori (field_sale_kategori) (translated) */
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['id'] = 'field_sale_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['table'] = 'field_data_field_sale_kategori';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['field'] = 'field_sale_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['group'] = 1;
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['operator_id'] = 'field_sale_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['label'] = 'Sorter efter sale';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['operator'] = 'field_sale_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['identifier'] = 'field_sale_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['vocabulary'] = 'sale';
+  /* Filterkriterie: Indhold: Tårne kategori (field_offer_type) (translated) */
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['id'] = 'field_offer_type_tid_i18n';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['table'] = 'field_data_field_offer_type';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['field'] = 'field_offer_type_tid_i18n';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['group'] = 1;
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['operator_id'] = 'field_offer_type_tid_i18n_op';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['label'] = 'Tårne kategori';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['operator'] = 'field_offer_type_tid_i18n_op';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['identifier'] = 'field_offer_type_tid_i18n';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['vocabulary'] = 'offer_type';
+  /* Filterkriterie: Indhold: Geografi kategori (field_geografi_kategori) (translated) */
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['id'] = 'field_geografi_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['table'] = 'field_data_field_geografi_kategori';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['field'] = 'field_geografi_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['group'] = 1;
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['operator_id'] = 'field_geografi_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['label'] = 'Sorter efter geografi';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['operator'] = 'field_geografi_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['identifier'] = 'field_geografi_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['vocabulary'] = 'geografi';
+  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['id'] = 'field_udl_bsdato_value_1';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['table'] = 'field_data_field_udl_bsdato';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['field'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['group'] = 2;
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['operator_id'] = 'field_udl_bsdato_value_1_op';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['label'] = 'Udløbsdato (field_udl_bsdato)';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['operator'] = 'field_udl_bsdato_value_1_op';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['identifier'] = 'field_offer_dato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['form_type'] = 'date_popup';
+  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['id'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['table'] = 'field_data_field_udl_bsdato';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['field'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['group'] = 2;
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['operator_id'] = 'field_udl_bsdato_value_op';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['label'] = 'Udløbsdato (field_udl_bsdato)';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['operator'] = 'field_udl_bsdato_value_op';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['identifier'] = 'field_offer_dato_value_1';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['form_type'] = 'date_popup';
+  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['id'] = 'field_udl_bsdato_value_2';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['table'] = 'field_data_field_udl_bsdato';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['field'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['default_date'] = 'now';
+  $handler->display->display_options['argument_input'] = array(
+    'term_node_tid_depth' => array(
+      'type' => 'user',
+      'context' => 'entity:user.cancel-url',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Indhold: Har taksonomiterm ID (med dybde)',
+    ),
+  );
+
+  /* Display: iframe - K - Senest */
+  $handler = $view->new_display('panel_pane', 'iframe - K - Senest', 'panel_pane_5');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'as3grid product-list';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
+  $handler->display->display_options['defaults']['query'] = FALSE;
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Find';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '8';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'Der er ingen produkter';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Der er ingen produkter';
+  $handler->display->display_options['empty']['area']['format'] = 'full_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Forbindelse: Indhold: Refereret produkt */
+  $handler->display->display_options['relationships']['field_reference_product_id']['id'] = 'field_reference_product_id';
+  $handler->display->display_options['relationships']['field_reference_product_id']['table'] = 'field_data_field_reference';
+  $handler->display->display_options['relationships']['field_reference_product_id']['field'] = 'field_reference_product_id';
+  /* Forbindelse: Indhold: Taksonomitermer på node */
+  $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+    'offer_type' => 'offer_type',
+    'geografi' => 0,
+    'sale' => 0,
+    'weeks' => 0,
+    'tags' => 0,
+    'prices' => 0,
+  );
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: MIN(Ord i ordforråd: Term ID) */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['fields']['tid']['group_type'] = 'min';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['format_plural'] = TRUE;
+  /* Felt: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = 'knaptekst oversat';
+  $handler->display->display_options['fields']['php']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_output'] = '<?php print (t(\'Buy now\')); ?>';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Felt: Indhold: Knaptekst */
+  $handler->display->display_options['fields']['field_knaptekst']['id'] = 'field_knaptekst';
+  $handler->display->display_options['fields']['field_knaptekst']['table'] = 'field_data_field_knaptekst';
+  $handler->display->display_options['fields']['field_knaptekst']['field'] = 'field_knaptekst';
+  $handler->display->display_options['fields']['field_knaptekst']['label'] = '';
+  $handler->display->display_options['fields']['field_knaptekst']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_knaptekst']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_knaptekst']['empty'] = '[php]';
+  $handler->display->display_options['fields']['field_knaptekst']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_knaptekst']['group_column'] = 'entity_id';
+  /* Felt: Felt: Titel */
+  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['alter']['text'] = '<span class="product-title">[title_field]</span>
+<span class="product-subtitle">[field_subtitle]</span>';
+  $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_field']['element_wrapper_class'] = 'term[tid]';
+  $handler->display->display_options['fields']['title_field']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['title_field']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'title_class' => '',
+  );
+  $handler->display->display_options['fields']['title_field']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
+  /* Felt: Indhold: Underoverskrift */
+  $handler->display->display_options['fields']['field_subtitle']['id'] = 'field_subtitle';
+  $handler->display->display_options['fields']['field_subtitle']['table'] = 'field_data_field_subtitle';
+  $handler->display->display_options['fields']['field_subtitle']['field'] = 'field_subtitle';
+  $handler->display->display_options['fields']['field_subtitle']['label'] = '';
+  $handler->display->display_options['fields']['field_subtitle']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_subtitle']['type'] = 'title_linked';
+  $handler->display->display_options['fields']['field_subtitle']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'title_class' => '',
+  );
+  $handler->display->display_options['fields']['field_subtitle']['group_column'] = 'entity_id';
+  /* Felt: Indhold: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['alter']['text'] = '<span class="btn btn-small">[field_knaptekst]</span>';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Fotos */
+  $handler->display->display_options['fields']['field_offer_images']['id'] = 'field_offer_images';
+  $handler->display->display_options['fields']['field_offer_images']['table'] = 'field_data_field_offer_images';
+  $handler->display->display_options['fields']['field_offer_images']['field'] = 'field_offer_images';
+  $handler->display->display_options['fields']['field_offer_images']['label'] = '';
+  $handler->display->display_options['fields']['field_offer_images']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_offer_images']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_offer_images']['settings'] = array(
+    'image_style' => 'offer_list',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_offer_images']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_offer_images']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_offer_images']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Kontekstuelt filter: Indhold: Har taksonomiterm ID (med dybde) */
+  $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '3';
+  /* Kontekstuelt filter: Indhold: Tårne kategori (field_offer_type) */
+  $handler->display->display_options['arguments']['field_offer_type_tid']['id'] = 'field_offer_type_tid';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['table'] = 'field_data_field_offer_type';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['field'] = 'field_offer_type_tid';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_offer_type_tid']['summary_options']['items_per_page'] = '25';
+  /* Kontekstuelt filter: Indhold: Sale kategori (field_sale_kategori) */
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['id'] = 'field_sale_kategori_tid';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['table'] = 'field_data_field_sale_kategori';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['field'] = 'field_sale_kategori_tid';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_sale_kategori_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'AND',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'offer' => 'offer',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filterkriterie: Indhold: Sale kategori (field_sale_kategori) (translated) */
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['id'] = 'field_sale_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['table'] = 'field_data_field_sale_kategori';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['field'] = 'field_sale_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['group'] = 1;
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['operator_id'] = 'field_sale_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['label'] = 'Sorter efter sale';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['operator'] = 'field_sale_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['identifier'] = 'field_sale_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['field_sale_kategori_tid_i18n']['vocabulary'] = 'sale';
+  /* Filterkriterie: Indhold: Tårne kategori (field_offer_type) (translated) */
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['id'] = 'field_offer_type_tid_i18n';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['table'] = 'field_data_field_offer_type';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['field'] = 'field_offer_type_tid_i18n';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['group'] = 1;
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['operator_id'] = 'field_offer_type_tid_i18n_op';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['label'] = 'Tårne kategori';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['operator'] = 'field_offer_type_tid_i18n_op';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['identifier'] = 'field_offer_type_tid_i18n';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['field_offer_type_tid_i18n']['vocabulary'] = 'offer_type';
+  /* Filterkriterie: Indhold: Geografi kategori (field_geografi_kategori) (translated) */
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['id'] = 'field_geografi_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['table'] = 'field_data_field_geografi_kategori';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['field'] = 'field_geografi_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['group'] = 1;
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['operator_id'] = 'field_geografi_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['label'] = 'Sorter efter geografi';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['operator'] = 'field_geografi_kategori_tid_i18n_op';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['identifier'] = 'field_geografi_kategori_tid_i18n';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['vocabulary'] = 'geografi';
+  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['id'] = 'field_udl_bsdato_value_1';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['table'] = 'field_data_field_udl_bsdato';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['field'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['group'] = 2;
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['operator_id'] = 'field_udl_bsdato_value_1_op';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['label'] = 'Udløbsdato (field_udl_bsdato)';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['operator'] = 'field_udl_bsdato_value_1_op';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['identifier'] = 'field_offer_dato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['form_type'] = 'date_popup';
+  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['id'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['table'] = 'field_data_field_udl_bsdato';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['field'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['group'] = 2;
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['operator_id'] = 'field_udl_bsdato_value_op';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['label'] = 'Udløbsdato (field_udl_bsdato)';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['operator'] = 'field_udl_bsdato_value_op';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['identifier'] = 'field_offer_dato_value_1';
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_udl_bsdato_value']['form_type'] = 'date_popup';
+  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['id'] = 'field_udl_bsdato_value_2';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['table'] = 'field_data_field_udl_bsdato';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['field'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['default_date'] = 'now';
+  $handler->display->display_options['argument_input'] = array(
+    'term_node_tid_depth' => array(
+      'type' => 'user',
+      'context' => 'entity:user.cancel-url',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Indhold: Har taksonomiterm ID (med dybde)',
+    ),
+  );
+
+  /* Display: Produkter - iframe - senest */
+  $handler = $view->new_display('panel_pane', 'Produkter - iframe - senest', 'panel_pane_3');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'as3grid product-list';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
+  $handler->display->display_options['defaults']['query'] = FALSE;
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Find';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Forbindelse: Indhold: Refereret produkt */
+  $handler->display->display_options['relationships']['field_reference_product_id']['id'] = 'field_reference_product_id';
+  $handler->display->display_options['relationships']['field_reference_product_id']['table'] = 'field_data_field_reference';
+  $handler->display->display_options['relationships']['field_reference_product_id']['field'] = 'field_reference_product_id';
+  /* Forbindelse: Indhold: Taksonomitermer på node */
+  $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+    'offer_type' => 'offer_type',
+    'geografi' => 0,
+    'sale' => 0,
+    'weeks' => 0,
+    'tags' => 0,
+    'prices' => 0,
+  );
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: MIN(Ord i ordforråd: Term ID) */
+  $handler->display->display_options['fields']['tid']['id'] = 'tid';
+  $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['tid']['field'] = 'tid';
+  $handler->display->display_options['fields']['tid']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['fields']['tid']['group_type'] = 'min';
+  $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['tid']['format_plural'] = TRUE;
+  /* Felt: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = 'knaptekst oversat';
+  $handler->display->display_options['fields']['php']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_output'] = '<?php print (t(\'Buy now\')); ?>';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Felt: Indhold: Knaptekst */
+  $handler->display->display_options['fields']['field_knaptekst']['id'] = 'field_knaptekst';
+  $handler->display->display_options['fields']['field_knaptekst']['table'] = 'field_data_field_knaptekst';
+  $handler->display->display_options['fields']['field_knaptekst']['field'] = 'field_knaptekst';
+  $handler->display->display_options['fields']['field_knaptekst']['label'] = '';
+  $handler->display->display_options['fields']['field_knaptekst']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_knaptekst']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_knaptekst']['alter']['text'] = '[php]';
+  $handler->display->display_options['fields']['field_knaptekst']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_knaptekst']['empty'] = 'Book nu';
+  $handler->display->display_options['fields']['field_knaptekst']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_knaptekst']['group_column'] = 'entity_id';
+  /* Felt: Felt: Titel */
+  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['alter']['text'] = '<span class="product-title">[title_field]</span>
+<span class="product-subtitle">[field_subtitle]</span>';
+  $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_field']['element_wrapper_class'] = 'term[tid]';
+  $handler->display->display_options['fields']['title_field']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['title_field']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'title_class' => '',
+  );
+  $handler->display->display_options['fields']['title_field']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
+  /* Felt: Indhold: Underoverskrift */
+  $handler->display->display_options['fields']['field_subtitle']['id'] = 'field_subtitle';
+  $handler->display->display_options['fields']['field_subtitle']['table'] = 'field_data_field_subtitle';
+  $handler->display->display_options['fields']['field_subtitle']['field'] = 'field_subtitle';
+  $handler->display->display_options['fields']['field_subtitle']['label'] = '';
+  $handler->display->display_options['fields']['field_subtitle']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_subtitle']['type'] = 'title_linked';
+  $handler->display->display_options['fields']['field_subtitle']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'title_class' => '',
+  );
+  $handler->display->display_options['fields']['field_subtitle']['group_column'] = 'entity_id';
+  /* Felt: Indhold: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['alter']['text'] = '<span class="btn btn-small">[field_knaptekst]</span>';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  /* Felt: Indhold: Fotos */
+  $handler->display->display_options['fields']['field_offer_images']['id'] = 'field_offer_images';
+  $handler->display->display_options['fields']['field_offer_images']['table'] = 'field_data_field_offer_images';
+  $handler->display->display_options['fields']['field_offer_images']['field'] = 'field_offer_images';
+  $handler->display->display_options['fields']['field_offer_images']['label'] = '';
+  $handler->display->display_options['fields']['field_offer_images']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_offer_images']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_offer_images']['settings'] = array(
+    'image_style' => 'offer_list',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_offer_images']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_offer_images']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_offer_images']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sorteringskriterie: Indhold: Oprettelsesdato */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Kontekstuelt filter: Indhold: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -1226,17 +2095,18 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Ord i ordforråd: Navn */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = '';
-  $handler->display->display_options['fields']['name']['alter']['text'] = 'Navn" alt="test';
-  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['name']['element_class'] = 'term[tid]';
-  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Felt: Ord i ordforråd: Forside overskrift */
+  $handler->display->display_options['fields']['field_front_page_title']['id'] = 'field_front_page_title';
+  $handler->display->display_options['fields']['field_front_page_title']['table'] = 'field_data_field_front_page_title';
+  $handler->display->display_options['fields']['field_front_page_title']['field'] = 'field_front_page_title';
+  $handler->display->display_options['fields']['field_front_page_title']['label'] = '';
+  $handler->display->display_options['fields']['field_front_page_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_front_page_title']['type'] = 'title_linked';
+  $handler->display->display_options['fields']['field_front_page_title']['settings'] = array(
+    'title_style' => '_none',
+    'title_link' => 'content',
+    'title_class' => '',
+  );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sorteringskriterie: Ordforråd: Vægt */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
@@ -1333,6 +2203,7 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
@@ -1480,6 +2351,7 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
@@ -1571,6 +2443,7 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
@@ -1617,6 +2490,7 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
@@ -1920,7 +2794,7 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['fields']['field_offer_email']['id'] = 'field_offer_email';
   $handler->display->display_options['fields']['field_offer_email']['table'] = 'field_data_field_offer_email';
   $handler->display->display_options['fields']['field_offer_email']['field'] = 'field_offer_email';
-  $handler->display->display_options['fields']['field_offer_email']['label'] = 'Mail';
+  $handler->display->display_options['fields']['field_offer_email']['label'] = 'E-mail';
   $handler->display->display_options['fields']['field_offer_email']['element_type'] = 'span';
   $handler->display->display_options['fields']['field_offer_email']['element_class'] = 'field';
   $handler->display->display_options['fields']['field_offer_email']['element_label_type'] = 'span';
@@ -2060,6 +2934,7 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
