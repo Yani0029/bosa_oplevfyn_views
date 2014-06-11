@@ -330,6 +330,13 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['type'] = 'select';
   $handler->display->display_options['filters']['field_geografi_kategori_tid_i18n']['vocabulary'] = 'geografi';
   /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['id'] = 'field_udl_bsdato_value_2';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['table'] = 'field_data_field_udl_bsdato';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['field'] = 'field_udl_bsdato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['group'] = 1;
+  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['default_date'] = 'now';
+  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
   $handler->display->display_options['filters']['field_udl_bsdato_value_1']['id'] = 'field_udl_bsdato_value_1';
   $handler->display->display_options['filters']['field_udl_bsdato_value_1']['table'] = 'field_data_field_udl_bsdato';
   $handler->display->display_options['filters']['field_udl_bsdato_value_1']['field'] = 'field_udl_bsdato_value';
@@ -339,38 +346,39 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['operator_id'] = 'field_udl_bsdato_value_1_op';
   $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['label'] = 'Udløbsdato (field_udl_bsdato)';
   $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['operator'] = 'field_udl_bsdato_value_1_op';
-  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['identifier'] = 'field_offer_dato_value';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['identifier'] = 'field_udl_bsdato_value';
   $handler->display->display_options['filters']['field_udl_bsdato_value_1']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
     5 => 0,
   );
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['group_info']['label'] = 'Udløbsdato (field_udl_bsdato)';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['group_info']['identifier'] = 'field_udl_bsdato_value_1';
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['group_info']['remember'] = FALSE;
+  $handler->display->display_options['filters']['field_udl_bsdato_value_1']['group_info']['group_items'] = array(
+    1 => array(),
+    2 => array(),
+    3 => array(),
+  );
   $handler->display->display_options['filters']['field_udl_bsdato_value_1']['form_type'] = 'date_popup';
-  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['id'] = 'field_udl_bsdato_value';
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['table'] = 'field_data_field_udl_bsdato';
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['field'] = 'field_udl_bsdato_value';
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['group'] = 2;
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['operator_id'] = 'field_udl_bsdato_value_op';
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['label'] = 'Udløbsdato (field_udl_bsdato)';
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['operator'] = 'field_udl_bsdato_value_op';
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['identifier'] = 'field_offer_dato_value_1';
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['expose']['remember_roles'] = array(
+  /* Filterkriterie: Indhold: Startdato (field_startdato) */
+  $handler->display->display_options['filters']['field_startdato_value']['id'] = 'field_startdato_value';
+  $handler->display->display_options['filters']['field_startdato_value']['table'] = 'field_data_field_startdato';
+  $handler->display->display_options['filters']['field_startdato_value']['field'] = 'field_startdato_value';
+  $handler->display->display_options['filters']['field_startdato_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_startdato_value']['group'] = 2;
+  $handler->display->display_options['filters']['field_startdato_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_startdato_value']['expose']['operator_id'] = 'field_startdato_value_op';
+  $handler->display->display_options['filters']['field_startdato_value']['expose']['operator'] = 'field_startdato_value_op';
+  $handler->display->display_options['filters']['field_startdato_value']['expose']['identifier'] = 'field_startdato_value';
+  $handler->display->display_options['filters']['field_startdato_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
     5 => 0,
   );
-  $handler->display->display_options['filters']['field_udl_bsdato_value']['form_type'] = 'date_popup';
-  /* Filterkriterie: Indhold: Udløbsdato (field_udl_bsdato) */
-  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['id'] = 'field_udl_bsdato_value_2';
-  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['table'] = 'field_data_field_udl_bsdato';
-  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['field'] = 'field_udl_bsdato_value';
-  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_udl_bsdato_value_2']['default_date'] = 'now';
+  $handler->display->display_options['filters']['field_startdato_value']['form_type'] = 'date_popup';
   $handler->display->display_options['argument_input'] = array(
     'term_node_tid_depth' => array(
       'type' => 'user',
@@ -684,6 +692,7 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '3';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['break_phrase'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
@@ -963,6 +972,7 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '3';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['break_phrase'] = TRUE;
   /* Kontekstuelt filter: Indhold: Tårne kategori (field_offer_type) */
   $handler->display->display_options['arguments']['field_offer_type_tid']['id'] = 'field_offer_type_tid';
   $handler->display->display_options['arguments']['field_offer_type_tid']['table'] = 'field_data_field_offer_type';
@@ -1256,6 +1266,7 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '3';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['break_phrase'] = TRUE;
   /* Kontekstuelt filter: Indhold: Tårne kategori (field_offer_type) */
   $handler->display->display_options['arguments']['field_offer_type_tid']['id'] = 'field_offer_type_tid';
   $handler->display->display_options['arguments']['field_offer_type_tid']['table'] = 'field_data_field_offer_type';
@@ -1553,6 +1564,7 @@ function bosa_oplevfyn_views_views_default_views() {
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '3';
+  $handler->display->display_options['arguments']['term_node_tid_depth']['break_phrase'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
