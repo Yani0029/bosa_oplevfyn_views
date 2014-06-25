@@ -806,14 +806,6 @@ function bosa_oplevfyn_views_views_default_views() {
     5 => 0,
   );
   $handler->display->display_options['filters']['field_offer_dato_value_1']['form_type'] = 'date_popup';
-  /* Filterkriterie: Commerce Product: Dato og tidspunkt for sidste ordre (field_dato_og_tidspunkt_for_sids) */
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['id'] = 'field_dato_og_tidspunkt_for_sids_value';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['table'] = 'field_data_field_dato_og_tidspunkt_for_sids';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['field'] = 'field_dato_og_tidspunkt_for_sids_value';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['relationship'] = 'field_reference_product_id';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['granularity'] = 'hour';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['default_date'] = 'now';
   $handler->display->display_options['argument_input'] = array(
     'term_node_tid_depth' => array(
       'type' => 'user',
@@ -1678,14 +1670,6 @@ function bosa_oplevfyn_views_views_default_views() {
     5 => 0,
   );
   $handler->display->display_options['filters']['field_offer_dato_value_1']['form_type'] = 'date_popup';
-  /* Filterkriterie: Commerce Product: Dato og tidspunkt for sidste ordre (field_dato_og_tidspunkt_for_sids) */
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['id'] = 'field_dato_og_tidspunkt_for_sids_value';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['table'] = 'field_data_field_dato_og_tidspunkt_for_sids';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['field'] = 'field_dato_og_tidspunkt_for_sids_value';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['relationship'] = 'field_reference_product_id';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['granularity'] = 'hour';
-  $handler->display->display_options['filters']['field_dato_og_tidspunkt_for_sids_value']['default_date'] = 'now';
   $handler->display->display_options['argument_input'] = array(
     'term_node_tid_depth' => array(
       'type' => 'user',
